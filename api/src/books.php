@@ -36,7 +36,10 @@ if($_SERVER['REQUEST_METHOD']=='GET') {
 }
 if($_SERVER['REQUEST_METHOD']=='POST'){
     echo "lol";
-    print_r($_POST);
+    $toDecode = $_POST['data'];
+    $toDecode2= $_POST['ajaxToSend'];
+    $decoded=json_decode($toDecode);
+    $decoded2=json_decode($toDecode2);
 }
 
 

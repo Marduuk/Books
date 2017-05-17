@@ -59,7 +59,7 @@ $(function (){
 
     });
     console.log($("button"))
-    $("#13").on("click", function(){
+    $("button").on("click", function(){
 
         var newBookName = $( "input[name='newBookName']").val();
         var newBookAuthor = $( "input[name='newBookAuthor']").val();
@@ -71,7 +71,9 @@ $(function (){
         };
 
         var ajaxToSend = JSON.stringify(toStringify);
-    ;
+
+        console.log(ajaxToSend);
+
         $.ajax({
 
             url: "http://localhost/API/api/src/books.php",

@@ -1,6 +1,6 @@
 <?php
 
-
+//<input type='submit' id="13" value="button bez refresha strony, ale ogolnie rzecz biorac dziala i chyba tak mialo to dzialac nie?">
 //<button type='button'>button bez refresha strony, ale ogolnie rzecz biorac dziala i chyba tak mialo to dzialac nie?</button>
 echo<<<END
 
@@ -10,7 +10,7 @@ echo<<<END
 </head>
 <body>
 
-<form  class="ajax">
+<form method="POST" class="ajax">
 Wpisz tytul ksiazki <br>
 <input type="text" name="newBookName"><br><br>
 Wpisz autora ksiazki<br>
@@ -18,9 +18,8 @@ Wpisz autora ksiazki<br>
 Wpisz opis ksiazki<br>
 <input type="textarea" name="newBookDescription"><br><br>
 
-<input type='submit' id="13" value="button bez refresha strony, ale ogolnie rzecz biorac dziala i chyba tak mialo to dzialac nie?">
 
-
+<button type='button'>button bez refresha strony, ale ogolnie rzecz biorac dziala i chyba tak mialo to dzialac nie?</button>
 </form>
 
 
