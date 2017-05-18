@@ -1,7 +1,5 @@
 <?php
 
-//<input type='submit' id="13" value="button bez refresha strony, ale ogolnie rzecz biorac dziala i chyba tak mialo to dzialac nie?">
-//<button type='button'>button bez refresha strony, ale ogolnie rzecz biorac dziala i chyba tak mialo to dzialac nie?</button>
 echo<<<END
 
 <!DOCTYPE html>
@@ -17,14 +15,8 @@ Wpisz autora ksiazki<br>
 <input type="text" name="newBookAuthor"><br><br>
 Wpisz opis ksiazki<br>
 <input type="textarea" name="newBookDescription"><br><br>
-
-
-<button type='button'>button bez refresha strony, ale ogolnie rzecz biorac dziala i chyba tak mialo to dzialac nie?</button>
+<button type='submit'>button bez refresha strony, ale ogolnie rzecz biorac dziala i chyba tak mialo to dzialac nie?</button>
 </form>
-
-
-
-
 
 <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -33,3 +25,4 @@ Wpisz opis ksiazki<br>
 <script src="app.js"></script>
 </body>
 END;
+?>

@@ -4,55 +4,41 @@ require('book_class.php');
 
 if($_SERVER['REQUEST_METHOD']=='GET') {
     if (!isset($_GET['id'])) {
-
         $sql = "SELECT * FROM main";
         $res = $conn->query($sql);
-        $count = $res->num_rows;
 
-
-        $resArr = [];
-        for ($i = 0; $i < $count; $i++) {
-            $book[$i] = Book::loadFromDB($conn, $i);
-            if ($book[$i] != null) {
-                $serializedBooks[] = $book[$i];
-            }
+        foreach($res as $row){
+            $book=Book::loadFromDB($conn, $row['id']);
+            $serializedBooks[]=$book;
         }
+
         $sera = json_encode($serializedBooks);
         print_r($sera);
-    } else {
+    }
+    else {
         $singleBookId = $_GET['id'];
         $singleBook = Book::loadFromDB($conn, $singleBookId);
         $serializedSingleBook = json_encode($singleBook);
         echo $serializedSingleBook;
 
-
         $title = $singleBook->getName();
         $serializedTitle = json_encode($title);
-        //  echo $serializedTitle;
-
-
     }
-
 }
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    echo "lol";
-    $toDecode = $_POST['data'];
-    $toDecode2= $_POST['ajaxToSend'];
-    $decoded=json_decode($toDecode);
-    $decoded2=json_decode($toDecode2);
+    $toDecode= $_POST['ajaxToSend'];
+    $decoded=json_decode($toDecode,true);
+
+    $decoded['name'];
+    $decoded['author'];
+    $decoded['description'];
+    Book::create($conn,$decoded['name'],$decoded['author'],$decoded['description']);
 }
-
-
-
-
-
-//Book::create($conn, $postName, $postAuthor, $postDescription);
-//sukces?
-
-
-
-
-
+if($_SERVER['REQUEST_METHOD']=='DELETE'){
+    $receivedAjax=parse_str(file_get_contents('php://input'),$put_vars);    //jak debugowac po stronie servera?
+    $idToDelete=$put_vars['idToDelete'];
+    Book::deleteFromDB($conn,$idToDelete);
+}
 
 
 
